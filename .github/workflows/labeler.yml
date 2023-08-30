@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add "invite me to the organization" label
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && contains(github.event.issue.title, 'Please invite me to the GitHub Community Organization')
         uses: actions-ecosystem/action-add-labels@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
